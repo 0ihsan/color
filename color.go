@@ -1,11 +1,5 @@
 package color
 
-func Ansi(ansicode string) func(string) string {
-	return func(msg string) string {
-		return "\033["+ansicode+"m"+msg+"\033[0m"
-	}
-}
-
 var Red         = Ansi("31")
 var Green       = Ansi("32")
 var Yellow      = Ansi("33")
@@ -21,3 +15,10 @@ var LightBlue   = Ansi("94")
 var LightPurple = Ansi("95")
 var LightAqua   = Ansi("96")
 var White       = Ansi("97")
+
+func Ansi(ansicode string) func(string) string {
+	return func(msg string) string {
+		return "\033["+ansicode+"m"+msg+"\033[0m"
+	}
+}
+
